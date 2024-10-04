@@ -1,6 +1,6 @@
-import { SearchType, Weather } from '@/types';
-import axios from 'axios';
-import { useMemo, useState } from 'react';
+import { SearchType, Weather } from "@/types";
+import axios from "axios";
+import { useMemo, useState } from "react";
 
 export default function useWeather() {
   const [weather, setWeather] = useState<Weather>({} as Weather);
@@ -14,7 +14,7 @@ export default function useWeather() {
     try {
       const appid = import.meta.env.VITE_API_KEY;
 
-      const geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appid}`;
+      const geoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appid}`;
 
       const { data } = await axios.get(geoURL);
 
